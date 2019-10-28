@@ -14,7 +14,7 @@ android.content.res.Resources$NotFoundException: String resource ID #0x34
 1 直接使用使用按钮点击事件重写点击方法-->setTexgitt<br>
 2.通过Activity中的runOnUIThread方法<br>
    Instace:<br>
-```
+```java  
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -32,7 +32,7 @@ android.content.res.Resources$NotFoundException: String resource ID #0x34
 ```
 2.通过Handler的post方法(本实验使用方法)
 Instace:<br>
-```
+```java
  Runnable runnable = new Runnable() {
                     @Override
                     public void run() {
@@ -49,7 +49,7 @@ Instace:<br>
 ```
 3.通过handler发送消息来实现子线程更新UI
 Instace:<br>
-```
+```java
 private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -64,7 +64,7 @@ private Handler handler = new Handler(){
     
 ```
 发送消息<br>
-```
+```java
                      Message message = Message.obtain();
                         message.what = 1;
                         handler.sendMessage(message);
@@ -72,7 +72,7 @@ private Handler handler = new Handler(){
 ### fourth Proble
 线程循环操作<br>
 1.使用Handler
-```
+```java
  Runnable runnable = new Runnable() {
                     @Override
                     public void run() {
@@ -89,7 +89,7 @@ private Handler handler = new Handler(){
                 handler.postDelayed(runnable,2000);
 ```
 2.使用timer
-```
+```java
           timer =new Timer(true);
         timer.schedule(new TimerTask() {
             @Override
